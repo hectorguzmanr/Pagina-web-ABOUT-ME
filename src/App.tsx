@@ -22,7 +22,7 @@ export default function App() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-5xl font-light tracking-tight text-neutral-900"
           >
-            Hector <span className="font-semibold">Guzman</span>
+            Héctor <span className="font-semibold">Guzmán</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
