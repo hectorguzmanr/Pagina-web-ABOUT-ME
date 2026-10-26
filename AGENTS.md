@@ -19,8 +19,12 @@
 - No hay variables de entorno requeridas para desarrollo local. El proyecto es un portafolio estático.
 
 ## UI
-- `src/App.tsx`: Portafolio minimalista de Héctor Guzmán (estudiante de ingeniería civil en la Universidad Dominicana O&M). Incluye enlaces de contacto (Email, GitHub, LinkedIn) animados con `motion/react`. Footer con "Con mucho Amor." 
-- Favicon: `public/favicon.svg` (monograma HG) enlazado en `index.html`.
+- `src/App.tsx`: Portafolio minimalista de Héctor Guzmán (estudiante de ingeniería civil en la Universidad Dominicana O&M). Incluye enlaces de contacto (Email, GitHub, LinkedIn) animados con `motion/react`. Footer con copyright dinámico + "Con mucho Amor."
+- `index.html`: Idioma `es`, favicon `public/favicon.svg` enlazado.
+
+## Git y cambios
+- Al hacer commits/pushes solicitados, **solo realizar hasta `git commit`**. El `git push` lo hará **únicamente el usuario**. Nunca hacer `git push` automáticamente.
+- **Siempre preguntar antes de hacer cualquier cambio** (editar archivos, crear, eliminar, ejecutar comandos que modifiquen el repo). No asumir, pedir confirmación explícita.
 
 ## Build/dev notes
 - `vite.config.ts`: `base: './'`, React + Tailwind plugins, `@` alias. Si `DISABLE_HMR=true`, se desactiva el file watching (comportamiento de AI Studio; no cambiar sin razón).
