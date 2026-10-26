@@ -81,6 +81,15 @@ export default function App() {
             </a>
           </div>
         </section>
+
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center text-sm text-neutral-400 pt-8"
+        >
+          Con mucho Amor.
+        </motion.footer>
       </motion.main>
     </div>
   );
