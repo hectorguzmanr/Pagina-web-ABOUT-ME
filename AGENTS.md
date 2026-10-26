@@ -16,9 +16,14 @@
 - `npm run clean` — `rm -rf dist server.js` (Unix shell; on Windows may need adjustment).
 
 ## Environment
-- Copy/configure env per `.env.example`: `GEMINI_API_KEY` required for Gemini calls; `APP_URL` for self-referential links/OAuth/API endpoints (injected by AI Studio in hosted env).
+- No hay variables de entorno requeridas para desarrollo local. El proyecto es un portafolio estático.
+
+## UI
+- `src/App.tsx`: Portafolio minimalista de Héctor Guzmán (estudiante de ingeniería civil en la Universidad Dominicana O&M). Incluye enlaces de contacto (Email, GitHub, LinkedIn) animados con `motion/react`. Footer con "Con mucho Amor." 
+- Favicon: `public/favicon.svg` (monograma HG) enlazado en `index.html`.
 
 ## Build/dev notes
-- `vite.config.ts`: `base: './'`, React + Tailwind plugins, `@` alias. If `DISABLE_HMR=true`, file watching disabled (AI Studio behavior; don't change without reason).
-- `tsconfig.json`: strict-ish bundler setup, `noEmit: true`, `allowImportingTsExtensions: true`, `moduleResolution: "bundler"`, JSX `react-jsx`.
-- `metadata.json` declares server-side Gemini capability.
+- `vite.config.ts`: `base: './'`, React + Tailwind plugins, `@` alias. Si `DISABLE_HMR=true`, se desactiva el file watching (comportamiento de AI Studio; no cambiar sin razón).
+- `tsconfig.json`: configuración bundler, `noEmit: true`, `allowImportingTsExtensions: true`, `moduleResolution: "bundler"`, JSX `react-jsx`.
+- `metadata.json` declara capacidad server-side de Gemini.
+- Assets estáticos en `public/` (servidos desde la raíz).
