@@ -19,7 +19,8 @@
 
 ## UI
 - `src/App.tsx`: Portafolio minimalista de Héctor Guzmán (estudiante de ingeniería civil en la Universidad Dominicana O&M). Incluye enlaces de contacto (Email, GitHub, LinkedIn) animados con `motion/react`. Footer con copyright dinámico + "Con mucho Amor."
-- `index.html`: Idioma `es`, favicon `public/favicon.svg` enlazado.
+- Accesibilidad: `MotionConfig reducedMotion="user"`, contraste mínimo `neutral-500`, foco visible y fallback `<noscript>`.
+- `index.html`: Idioma `es`, canonical/Open Graph/Twitter apuntando a `https://hectorguzmanr.github.io/Pagina-web-ABOUT-ME/`, JSON-LD `Person` y favicon enlazado.
 
 ## Git y cambios
 - Al hacer commits/pushes solicitados, **solo realizar hasta `git commit`**. El `git push` lo hará **únicamente el usuario**. Nunca hacer `git push` automáticamente.

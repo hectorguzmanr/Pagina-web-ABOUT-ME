@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hectorguzmanr.github.io/Pagina-web-ABOUT-ME/sitemap.xml
