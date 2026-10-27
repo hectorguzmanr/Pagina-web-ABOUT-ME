@@ -88,7 +88,7 @@ export default function App() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center text-sm text-neutral-400 pt-8"
         >
-          Con mucho Amor.
+          © {new Date().getFullYear()} Héctor Guzmán. Con mucho Amor.
         </motion.footer>
       </motion.main>
     </div>
