@@ -14,6 +14,7 @@ Portafolio personal minimalista de Héctor Guzmán, estudiante de ingeniería ci
 - Vite 6
 - Tailwind CSS v4 (`@tailwindcss/vite`)
 - Motion (`motion/react`) con respeto a `prefers-reduced-motion`
+- Modo oscuro con interruptor sol/luna; sigue al sistema hasta que lo cambias y guarda la elección en `localStorage`. Transición de colores de 300 ms y cruce animado del icono
 - Lucide React
 - GitHub Pages + GitHub Actions
 
@@ -45,6 +46,7 @@ Abre **http://localhost:3000**. El servidor recarga la página automáticamente 
 ├── public/                 # favicon, apple-touch-icon, og-image, robots.txt, sitemap.xml
 ├── src/
 │   ├── App.tsx             # Contenido y animaciones del portafolio
+│   ├── ThemeToggle.tsx     # Interruptor de tema con persistencia
 │   ├── index.css           # Tailwind + prefers-reduced-motion
 │   └── main.tsx            # Punto de entrada de React
 ├── index.html              # Metadatos SEO, Open Graph, JSON-LD y noscript
@@ -68,4 +70,5 @@ En GitHub, revisa una vez: **Settings → Pages → Build and deployment → Sou
 
 - Las dependencias están fijadas en `package-lock.json`; no edites ese archivo a mano.
 - El SEO y la vista previa social están configurados en `index.html`. La imagen para compartir es `public/og-image.png` (1200×630).
+- El modo oscuro sigue al sistema por defecto. El interruptor de la esquina inferior derecha permite cambiarlo; la elección se guarda en `localStorage` y se aplica antes del primer render para evitar parpadeos. El cambio anima los colores (300 ms) y cruza sol/luna con rotación; con `prefers-reduced-motion` los colores siguen fundiéndose y el icono solo se desvanece, sin rotación.
 - `robots.txt` y `sitemap.xml` apuntan a la URL de GitHub Pages. Al usar un dominio propio hay que actualizar `canonical`, `og:url`, `og:image`, `sitemap.xml` y `robots.txt`.

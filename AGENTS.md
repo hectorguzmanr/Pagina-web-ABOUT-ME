@@ -20,6 +20,7 @@
 ## UI
 - `src/App.tsx`: Portafolio minimalista de Héctor Guzmán (estudiante de ingeniería civil en la Universidad Dominicana O&M). Incluye enlaces de contacto (Email, GitHub, LinkedIn) animados con `motion/react`. Footer con copyright dinámico + "Con mucho Amor."
 - Accesibilidad: `MotionConfig reducedMotion="user"`, contraste mínimo `neutral-500`, foco visible y fallback `<noscript>`.
+- Modo oscuro con variante `dark:` basada en clase (`.dark`), interruptor sol/luna (`src/ThemeToggle.tsx`) y persistencia en `localStorage`; por defecto sigue al sistema. `index.html` aplica el tema antes del render para evitar flash. Transición de colores de 300 ms y cruce animado del icono; con `prefers-reduced-motion` se conservan los fundidos de color y el icono solo se desvanece.
 - `index.html`: Idioma `es`, canonical/Open Graph/Twitter apuntando a `https://hectorguzmanr.github.io/Pagina-web-ABOUT-ME/`, JSON-LD `Person` y favicon enlazado.
 
 ## Git y cambios

@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#171717" />
+    <meta name="theme-color" content="#fafafa" />
+    <script>
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem('theme');
+        } catch (e) {}
+        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var root = document.documentElement;
+        root.classList.toggle('dark', dark);
+        root.style.colorScheme = dark ? 'dark' : 'light';
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', dark ? '#0a0a0a' : '#fafafa');
+      })();
+    </script>
     <title>Héctor Guzmán — Portafolio</title>
     <meta name="description" content="Portafolio minimalista de Héctor Guzmán, estudiante de ingeniería civil." />
     <meta name="author" content="Héctor Guzmán" />
@@ -56,11 +70,11 @@
   <body>
     <div id="root"></div>
     <noscript>
-      <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; background: #fafafa; color: #171717; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+      <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; background: light-dark(#fafafa, #0a0a0a); color: light-dark(#171717, #fafafa); text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
         <h1 style="margin: 0; font-size: 32px; font-weight: 600;">Héctor Guzmán</h1>
-        <p style="margin: 0; color: #525252; line-height: 1.6;">
+        <p style="margin: 0; color: light-dark(#525252, #a3a3a3); line-height: 1.6;">
           Este portafolio necesita JavaScript para mostrarse.<br />
-          Escríbeme a <a href="mailto:hello@hectorguzmanr.com" style="color: #171717;">hello@hectorguzmanr.com</a>.
+          Escríbeme a <a href="mailto:hello@hectorguzmanr.com" style="color: light-dark(#171717, #fafafa);">hello@hectorguzmanr.com</a>.
         </p>
       </div>
     </noscript>
