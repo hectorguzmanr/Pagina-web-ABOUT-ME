@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#fafafa" />
@@ -62,7 +63,7 @@
         },
         "sameAs": [
           "https://github.com/hectorguzmanr",
-          "https://linkedin.com/in/hectorguzmanr"
+          "https://www.linkedin.com/in/hectorguzmanr"
         ]
       }
     </script>
@@ -70,11 +71,11 @@
   <body>
     <div id="root"></div>
     <noscript>
-      <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; background: light-dark(#fafafa, #0a0a0a); color: light-dark(#171717, #fafafa); text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+      <div class="nojs" style="min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
         <h1 style="margin: 0; font-size: 32px; font-weight: 600;">Héctor Guzmán</h1>
-        <p style="margin: 0; color: light-dark(#525252, #a3a3a3); line-height: 1.6;">
+        <p class="nojs-muted" style="margin: 0; line-height: 1.6;">
           Este portafolio necesita JavaScript para mostrarse.<br />
-          Escríbeme a <a href="mailto:hello@hectorguzmanr.com" style="color: light-dark(#171717, #fafafa);">hello@hectorguzmanr.com</a>.
+          Escríbeme a <a class="nojs-link" href="mailto:hello@hectorguzmanr.com">hello@hectorguzmanr.com</a>.
         </p>
       </div>
     </noscript>

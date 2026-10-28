@@ -1,5 +1,5 @@
 import { Moon, Sun } from 'lucide-react';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, m, useReducedMotion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 const THEME_KEY = 'theme';
@@ -60,8 +60,26 @@ export default function ThemeToggle() {
       applyTheme(event.matches);
     };
 
+    // Mantiene sincronizadas las pestañas abiertas cuando cambias el tema en otra.
+    const onStorage = (event: StorageEvent) => {
+      if (event.key !== THEME_KEY) return;
+      const next =
+        event.newValue === 'dark'
+          ? true
+          : event.newValue === 'light'
+            ? false
+            : media.matches;
+      setIsDark(next);
+      applyTheme(next);
+    };
+
     media.addEventListener('change', onChange);
-    return () => media.removeEventListener('change', onChange);
+    window.addEventListener('storage', onStorage);
+
+    return () => {
+      media.removeEventListener('change', onChange);
+      window.removeEventListener('storage', onStorage);
+    };
   }, []);
 
   function toggleTheme() {
@@ -84,28 +102,28 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       aria-label={label}
       title={label}
-      className="fixed bottom-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200/70 bg-white/60 text-neutral-600 shadow-sm backdrop-blur-sm transition-colors duration-300 hover:bg-white hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:border-neutral-800/70 dark:bg-neutral-900/60 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-50 dark:focus-visible:ring-offset-neutral-950"
+      className="fixed bottom-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200/70 bg-white/90 text-neutral-600 shadow-sm transition-colors duration-300 hover:bg-white hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:border-neutral-800/70 dark:bg-neutral-900/90 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-50 dark:focus-visible:ring-offset-neutral-950"
     >
       <span className="relative flex h-4 w-4 items-center justify-center">
         <AnimatePresence initial={false}>
           {isDark ? (
-            <motion.span
+            <m.span
               key="sun"
               {...sunMotion}
               transition={{ duration: 0.2, ease: 'easeOut' }}
               className="absolute inset-0 flex items-center justify-center"
             >
               <Sun className="h-4 w-4" aria-hidden="true" />
-            </motion.span>
+            </m.span>
           ) : (
-            <motion.span
+            <m.span
               key="moon"
               {...moonMotion}
               transition={{ duration: 0.2, ease: 'easeOut' }}
               className="absolute inset-0 flex items-center justify-center"
             >
               <Moon className="h-4 w-4" aria-hidden="true" />
-            </motion.span>
+            </m.span>
           )}
         </AnimatePresence>
       </span>
