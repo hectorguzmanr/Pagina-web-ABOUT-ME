@@ -21,3 +21,34 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Sin JavaScript la clase .dark nunca se aplica, así que el aviso <noscript>
+   sigue por su cuenta la preferencia del sistema. */
+.nojs {
+  background: #fafafa;
+  color: #171717;
+}
+
+.nojs-muted {
+  color: #525252;
+}
+
+.nojs-link {
+  color: #171717;
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nojs {
+    background: #0a0a0a;
+    color: #fafafa;
+  }
+
+  .nojs-muted {
+    color: #a3a3a3;
+  }
+
+  .nojs-link {
+    color: #fafafa;
+  }
+}
