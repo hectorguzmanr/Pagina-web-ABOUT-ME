@@ -10,6 +10,10 @@ import ThemeToggle from './ThemeToggle';
 const linkClass =
   'group flex min-h-11 items-center space-x-3 rounded-lg text-neutral-600 transition-colors duration-300 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:text-neutral-400 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-50 dark:focus-visible:ring-offset-neutral-950';
 
+const cuatrimestresCursados = 5;
+const cuatrimestresTotales = 12;
+const progresoCarrera = (cuatrimestresCursados / cuatrimestresTotales) * 100;
+
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
@@ -46,6 +50,43 @@ export default function App() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="h-px w-full bg-neutral-200 transition-colors duration-300 dark:bg-neutral-800"
           />
+
+          <motion.section
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="space-y-4"
+          >
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-neutral-500 transition-colors duration-300 dark:text-neutral-400">
+              Formación
+            </h2>
+            <div className="space-y-3">
+              <div className="space-y-1">
+                <p className="font-medium text-neutral-900 transition-colors duration-300 dark:text-neutral-50">
+                  Universidad Dominicana O&amp;M
+                </p>
+                <p className="text-sm text-neutral-500 transition-colors duration-300 dark:text-neutral-400">
+                  Ingeniería Civil · Cuatrimestre {cuatrimestresCursados} de {cuatrimestresTotales}
+                </p>
+              </div>
+              <div
+                role="progressbar"
+                aria-label="Progreso de la carrera"
+                aria-valuemin={0}
+                aria-valuemax={cuatrimestresTotales}
+                aria-valuenow={cuatrimestresCursados}
+                aria-valuetext={`Cuatrimestre ${cuatrimestresCursados} de ${cuatrimestresTotales}`}
+                className="h-1 w-full overflow-hidden rounded-full bg-neutral-200 transition-colors duration-300 dark:bg-neutral-800"
+              >
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progresoCarrera}%` }}
+                  transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+                  className="h-full rounded-full bg-neutral-900 transition-colors duration-300 dark:bg-neutral-50"
+                />
+              </div>
+            </div>
+          </motion.section>
 
           <section className="space-y-6">
             <h2 className="text-sm font-semibold uppercase tracking-widest text-neutral-500 transition-colors duration-300 dark:text-neutral-400">
